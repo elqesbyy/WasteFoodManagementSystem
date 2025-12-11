@@ -1,0 +1,89 @@
+/* frontend/src/pages/CategoryManagement.css (TABLEAU CATÉGORIES) */
+
+:root {
+    --logo-color-eat: #ff7f50;
+    --button-bg-color: #66BB6A;
+    --text-dark: #333;
+}
+
+/* ------------------------------------------------ */
+/* --- STYLE DU TABLEAU DES CATÉGORIES --- */
+/* ------------------------------------------------ */
+
+.category-management-table {
+    width: 100%;
+    min-width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+    table-layout: fixed;
+}
+
+.category-management-table th {
+    background-color: #f7f7f7;
+    color: var(--text-dark);
+    padding: 8px 12px;
+    border-bottom: 2px solid #ddd;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.category-management-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    color: var(--text-dark);
+    vertical-align: middle;
+    /* Contrainte sur la description pour qu'elle ne prenne pas toute la place */
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Largeurs de Colonnes */
+.category-management-table thead th:nth-child(1) { width: 5%; } /* ID */
+.category-management-table thead th:nth-child(2) { width: 20%; } /* Nom */
+.category-management-table thead th:nth-child(3) { width: 45%; } /* Description */
+.category-management-table thead th:nth-child(4) { width: 15%; } /* Créé le */
+.category-management-table thead th:nth-child(5) { width: 15%; } /* Actions */
+
+
+/* --- BOUTONS D'ACTION (Compact) --- */
+
+.action-btn {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+    font-size: 12px;
+    transition: opacity 0.2s;
+}
+
+.action-btn:hover {
+    opacity: 0.8;
+}
+
+.edit-btn {
+    background-color: #2196F3; /* Bleu */
+    color: white;
+}
+
+.delete-btn {
+    background-color: #F44336; /* Rouge */
+    color: white;
+}
+
+/* Bouton Ajouter Catégorie */
+.add-category-btn {
+    background-color: var(--button-bg-color);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}

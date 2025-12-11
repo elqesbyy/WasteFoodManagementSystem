@@ -1,0 +1,169 @@
+/* frontend/src/pages/UserManagement.css (COMPLET ET MIS À JOUR) */
+
+/* Utilise les variables définies dans AdminDashboard.css */
+:root {
+    --logo-color-eat: #ff7f50; /* Orange corail */
+    --button-bg-color: #66BB6A;
+    --text-dark: #333;
+    --card-bg: white;
+    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- CONTENEUR PRINCIPAL DU TABLEAU --- */
+.admin-content-box {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid #f0f0f0;
+}
+
+/* Style pour forcer la largeur maximale (si nécessaire) */
+.full-width-table {
+    width: 100%;
+}
+
+/* --- EN-TÊTE ET CONTRÔLES --- */
+.table-header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.table-header-controls h2 {
+    color: var(--logo-color-eat);
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Bouton Ajouter Utilisateur */
+.add-user-btn {
+    background-color: var(--button-bg-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.add-user-btn:hover {
+    background-color: #5cb85c;
+}
+
+/* --- GESTION DU DÉFILEMENT (TABLE WRAPPER) --- */
+/* Wrapper essentiel pour permettre le défilement horizontal lorsque le tableau est trop large */
+.table-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* --- STYLE DU TABLEAU --- */
+.user-management-table {
+    width: 100%;
+    /* Largeur minimale ajustée après la suppression des colonnes ID et MàJ le */
+    min-width: 1200px;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+}
+
+.user-management-table th {
+    background-color: #f7f7f7;
+    color: var(--text-dark);
+    padding: 12px 15px;
+    border-bottom: 2px solid #ddd;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap; /* Empêche les en-têtes de se plier */
+}
+
+.user-management-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    color: var(--text-dark);
+    vertical-align: middle;
+    white-space: nowrap; /* Assure que le contenu des cellules ne se plie pas */
+    max-width: 250px; /* Limite la largeur de certaines cellules */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-management-table tbody tr:hover {
+    background-color: #fcfcfc;
+}
+
+/* Ligne d'utilisateur inactif */
+.inactive-row {
+    background-color: #fff8f8;
+    opacity: 0.8;
+}
+
+/* Colonnes spécifiques */
+.user-management-table td:nth-child(1) { /* Email (maintenant la 1ère colonne visible) */
+    max-width: 200px;
+}
+.user-management-table td:nth-child(5) { /* Adresse */
+    max-width: 200px;
+}
+
+
+/* Colonne d'action, plus large */
+.action-column {
+    min-width: 200px;
+    white-space: nowrap;
+}
+
+/* --- BADGES DE RÔLE ET STATUT --- */
+
+.role-badge, .status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.85em;
+    display: inline-block;
+}
+
+/* Rôles */
+.role-donor { background-color: #A5D6A7; color: #1B5E20; } /* Vert clair */
+.role-buyer { background-color: #B3E5FC; color: #01579B; } /* Bleu clair */
+.role-admin { background-color: #FFCC80; color: #E65100; } /* Orange clair */
+
+/* Statut */
+.status-active { background-color: #E8F5E9; color: #388E3C; } /* Vert pâle */
+.status-inactive { background-color: #FFEBEE; color: #D32F2F; } /* Rouge pâle */
+
+/* --- BOUTONS D'ACTION --- */
+.action-btn {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+    font-size: 13px;
+    transition: opacity 0.2s;
+}
+
+.action-btn:hover {
+    opacity: 0.8;
+}
+
+.edit-btn {
+    background-color: #2196F3; /* Bleu */
+    color: white;
+}
+
+.deactivate-btn {
+    background-color: #FFC107; /* Jaune/Avertissement */
+    color: #333;
+}
+
+.delete-btn {
+    background-color: #F44336; /* Rouge */
+    color: white;
+}
