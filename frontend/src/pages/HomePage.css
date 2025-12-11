@@ -1,0 +1,140 @@
+/* frontend/src/pages/HomePage.css */
+
+/* --- COULEURS GÉNÉRALES --- */
+:root {
+    --logo-color-don: #4CAF50;
+    --logo-color-eat: #ff7f50;
+    --nav-text-color: #555;
+    --view-offers-bg: #66BB6A;
+    --become-donor-bg: #ff7f50;
+    --primary-bg-color: #f7f1e6; /* Le beige clair */
+    --text-dark: #333;
+}
+
+/* --- CONTENEUR GLOBAL --- */
+.home-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-bg-color);
+}
+
+/* --- 1. BARRE DE NAVIGATION --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--primary-bg-color);
+}
+
+/* Logo */
+.logo-section {
+    font-size: 28px;
+    font-weight: bold;
+}
+.logo-don { color: var(--logo-color-don); }
+.logo-eat { color: var(--logo-color-eat); }
+
+/* Liens de Navigation */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+.nav-link {
+    text-decoration: none;
+    color: var(--nav-text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.nav-link:hover {
+    color: var(--logo-color-eat);
+}
+
+/* Bouton Sign up */
+.signup-button-nav {
+    text-decoration: none;
+    padding: 8px 20px;
+    border: 1px solid var(--nav-text-color);
+    border-radius: 5px;
+    color: var(--nav-text-color);
+    transition: all 0.3s;
+}
+.signup-button-nav:hover {
+    background-color: var(--logo-color-eat);
+    color: white;
+    border-color: var(--logo-color-eat);
+}
+
+
+/* --- 2. SECTION PRINCIPALE (HÉRO) --- */
+
+.hero-section {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none; /* AUCUNE IMAGE */
+    color: var(--text-dark);
+    position: relative;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    color: var(--logo-color-don); /* Vert */
+}
+
+.hero-subtitle {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-dark);
+}
+
+/* Actions (Boutons) */
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.action-button {
+    text-decoration: none;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1em;
+    transition: opacity 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.action-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.view-offers {
+    background-color: var(--view-offers-bg); /* Vert */
+    color: white;
+}
+
+.become-donor {
+    background-color: var(--become-donor-bg); /* Orange */
+    color: white;
+}

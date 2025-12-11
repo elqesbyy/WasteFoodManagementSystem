@@ -1,0 +1,129 @@
+/* frontend/src/pages/LoginForm.css */
+
+/* --- COULEURS ET FOND --- */
+:root {
+    --bg-color: #f7f1e6;
+    --logo-color-don: #4CAF50;
+    --logo-color-eat: #ff7f50;
+    --button-bg-color: #66BB6A;
+    --text-color: #555;
+    --link-color: #ff7f50;
+    --border-color: #ddd;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    font-family: Arial, sans-serif;
+}
+
+/* --- CONTENEUR DU FORMULAIRE --- */
+.login-form-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    text-align: center;
+}
+
+/* --- LOGO DonEat --- */
+.logo-container {
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.logo-don {
+    color: var(--logo-color-don);
+}
+
+.logo-eat {
+    color: var(--logo-color-eat);
+}
+
+.login-title {
+    color: var(--logo-color-eat);
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+/* --- CHAMPS D'ENTRÉE --- */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: white;
+    height: 50px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.input-icon-box {
+    background-color: var(--logo-color-don);
+    color: white;
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px 0 0 5px;
+}
+
+.input-group input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    height: 100%;
+    border-radius: 0 5px 5px 0;
+}
+
+.input-group input::placeholder {
+    color: #aaa;
+}
+
+/* --- BOUTON DE CONNEXION --- */
+.login-button {
+    width: 50%;
+    padding: 12px 20px;
+    background-color: var(--button-bg-color);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #5CB85C;
+}
+
+/* --- LIENS ET TEXTES --- */
+.forgot-password-link {
+    display: block;
+    margin-top: 20px;
+    color: var(--link-color);
+    font-size: 14px;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.signup-text {
+    margin-top: 30px;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.signup-link {
+    color: var(--link-color);
+    text-decoration: underline;
+    font-weight: bold;
+}

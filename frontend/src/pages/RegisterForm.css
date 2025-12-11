@@ -1,0 +1,169 @@
+/* frontend/src/pages/RegisterForm.css */
+
+/* --- COULEURS ET FOND --- */
+:root {
+    --bg-color: #f7f1e6;
+    --logo-color-don: #4CAF50;
+    --logo-color-eat: #ff7f50;
+    --button-bg-color: #66BB6A;
+    --text-color: #555;
+    --link-color: #ff7f50;
+    --border-color: #ddd;
+    --active-role-bg: #ff7f50;
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    font-family: Arial, sans-serif;
+}
+
+/* --- CONTENEUR DU FORMULAIRE --- */
+.register-form-box {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    text-align: center;
+}
+
+/* --- LOGO DonEat --- */
+.logo-container {
+    margin-bottom: 5px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.logo-don {
+    color: var(--logo-color-don);
+}
+
+.logo-eat {
+    color: var(--logo-color-eat);
+}
+
+.register-subtitle {
+    color: var(--link-color);
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+
+/* --- SÉLECTEUR DE RÔLE (ADMIN/USER) --- */
+.role-selector {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    max-width: 250px;
+    margin: 0 auto 30px auto;
+    background-color: white;
+    padding: 5px;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.role-button {
+    flex-grow: 1;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.role-button.active {
+    background-color: var(--active-role-bg);
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- CHAMPS D'ENTRÉE --- */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: white;
+    height: 50px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.input-icon-box {
+    background-color: var(--logo-color-don);
+    color: white;
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px 0 0 5px;
+}
+
+.input-group input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    height: 100%;
+    border-radius: 0 5px 5px 0;
+}
+
+
+/* Toggle mot de passe (icône œil) */
+.password-group {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--text-color);
+    padding: 0 10px;
+    opacity: 0.6;
+}
+
+/* --- BOUTON D'INSCRIPTION --- */
+.register-button {
+    width: 50%;
+    padding: 12px 20px;
+    background-color: var(--button-bg-color);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.register-button:hover {
+    background-color: #5CB85C;
+}
+
+/* --- LIENS ET TEXTES --- */
+.login-text {
+    margin-top: 30px;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.login-link {
+    color: var(--link-color);
+    text-decoration: underline;
+    font-weight: bold;
+}
