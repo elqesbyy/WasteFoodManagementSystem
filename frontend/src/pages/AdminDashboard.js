@@ -25,7 +25,7 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <div className="sidebar-header">
-                <span className="logo-don">Don</span><span className="logo-eat">Eat</span>
+                <span className="logo-don">Don</span><span className="logo-eat">DonEat</span>
             </div>
             <nav className="sidebar-nav">
                 {navItems.map((item) => (

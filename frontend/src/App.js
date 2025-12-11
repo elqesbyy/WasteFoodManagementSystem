@@ -11,10 +11,13 @@ import OrderManagement from './pages/OrderManagement';
 import CategoryManagement from './pages/CategoryManagement';
 
 // --- Importation des Composants de Page (Publiques) ---
-// Assurez-vous que ces chemins correspondent à votre structure (ex: .js pour les fichiers)
-import HomePage from './pages/HomePage';       // Page d'accueil
-import LoginPage from './pages/LoginForm';     // Page de Connexion (LoginForm.js)
-import RegisterPage from './pages/RegisterForm'; // Page d'Inscription (RegisterForm.js)
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginForm';
+import RegisterPage from './pages/RegisterForm';
+
+// NOUVEAUX IMPORTS
+import ContactPage from './pages/ContactPage';
+import AboutPage from './pages/AboutPage';
 
 
 function App() {
@@ -35,13 +38,20 @@ function App() {
         {/* Page d'Inscription */}
         <Route path="/register" element={<RegisterPage />} />
 
+        {/* NOUVELLE ROUTE : Page Contact */}
+        <Route path="/contact" element={<ContactPage />} />
+
+        {/* NOUVELLE ROUTE : Page About */}
+        <Route path="/about" element={<AboutPage />} />
+
 
         {/* ====================================== */}
         {/* --- 2. ROUTES ADMINISTRATIVES (ADMIN) --- */}
         {/* ====================================== */}
 
-        {/* Dashboard (peut être accessible aussi via /admin-dashboard) */}
+        {/* Dashboard */}
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/admin" element={<AdminDashboard />} /> {/* Redirection simple vers l'admin */}
 
         {/* Gestion des Utilisateurs */}
         <Route path="/admin/users" element={<UserManagement />} />
@@ -54,9 +64,6 @@ function App() {
 
         {/* Gestion des Catégories */}
         <Route path="/admin/categories" element={<CategoryManagement />} />
-
-        {/* --- Route par défaut/404 (Optionnel : décommenter si vous avez un composant NotFoundPage) --- */}
-        {/* <Route path="*" element={<NotFoundPage />} /> */}
 
       </Routes>
     </Router>

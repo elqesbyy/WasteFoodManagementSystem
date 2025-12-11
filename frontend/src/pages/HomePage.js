@@ -2,53 +2,47 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './HomePage.css';
+import Navbar from '../components/Navbar'; // Importation du composant Navbar
+import './HomePage.css'; // Importation du fichier de style pour la page
 
 const HomePage = () => {
-  return (
-    <div className="home-container">
+    return (
+        <div className="homepage-container">
+            {/* 1. La barre de navigation est affichée en haut */}
+            <Navbar />
 
-      {/* 1. BARRE DE NAVIGATION (HEADER) */}
-      <header className="navbar">
-        <div className="logo-section">
-          <span className="logo-don">Don</span>
-          <span className="logo-eat">Eat</span>
+            {/* 2. Contenu principal de la page d'accueil (Section Héroïque) */}
+            <main className="main-content">
+                <section className="hero-section">
+
+                    {/* Slogan principal (Vu dans l'image : Save Food. Help People. Join DonEat) */}
+                    <h1 className="hero-slogan">Save Food. Help People. <br/> Join DonEat</h1>
+
+                    {/* Sous-titre */}
+                    <p className="hero-subtitle">
+                        Hotel upload surplus food. People buy it cheaply and donate it to those in need.
+                    </p>
+
+                    {/* Boutons d'action */}
+                    <div className="hero-actions">
+
+                        {/* Bouton Vert: View offers (Vers la page des offres) */}
+                        <Link to="/offers" className="action-btn offers-btn">
+                            View offers
+                        </Link>
+
+                        {/* Bouton Orange: Become a User (Vers la page d'inscription) */}
+                        <Link to="/register" className="action-btn register-btn">
+                            Become a User
+                        </Link>
+                    </div>
+                </section>
+            </main>
+
+            {/* Vous pourriez ajouter un Footer ici si vous en avez un */}
+            {/* <Footer /> */}
         </div>
-
-        <nav className="nav-links">
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/offers" className="nav-link">Offers</Link>
-          <Link to="/categories" className="nav-link">Categories</Link>
-          <Link to="/contact" className="nav-link">Contact</Link>
-        </nav>
-
-        <Link to="/register" className="signup-button-nav">Sign up</Link>
-      </header>
-
-      {/* 2. SECTION PRINCIPALE (HÉRO) */}
-      <main className="hero-section">
-        <div className="hero-content">
-          <h1>Save Food. Help People. Join DonEat</h1>
-          <p className="hero-subtitle">
-            Hotel upload surplus food. People buy it cheaply and donate it to those in need.
-          </p>
-
-          <div className="hero-actions">
-            {/* Bouton pour voir les offres */}
-            <Link to="/offers" className="action-button view-offers">
-                View offers
-            </Link>
-
-            {/* MODIFICATION : "Become a Donor." -> "Become a User." */}
-            <Link to="/register" className="action-button become-donor">
-                Become a User.
-            </Link>
-          </div>
-        </div>
-      </main>
-
-    </div>
-  );
+    );
 };
 
 export default HomePage;

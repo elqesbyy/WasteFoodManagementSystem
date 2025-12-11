@@ -1,0 +1,52 @@
+/* frontend/src/pages/AboutPage.css */
+
+.about-page-container {
+    min-height: 100vh;
+    background-color: #f7f7f7;
+    padding-top: 80px;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.about-title {
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
+}
+
+.mission-section, .how-it-works-section, .team-section {
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.mission-section h2, .how-it-works-section h2, .team-section h2 {
+    color: #ff7f50; /* Orange corail pour les sous-titres */
+    border-left: 5px solid #ff7f50;
+    padding-left: 10px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.how-it-works-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.how-it-works-section li {
+    background-color: #e8f5e9; /* Vert très clair */
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 3px solid #4CAF50;
+    font-weight: 500;
+}
