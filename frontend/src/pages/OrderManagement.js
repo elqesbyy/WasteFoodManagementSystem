@@ -55,15 +55,25 @@ const OrderManagement = () => {
                 <Link to="/admin/users" className="nav-item">
                     <UsersIcon /> <span>Gestion Users</span>
                 </Link>
-                <Link to="/admin/offers" className="nav-item">
-                    <OffersIcon /> <span>Offres & Dons</span>
+                <Link to="/admin/categories" className="nav-item ">
+                      <OffersIcon /> <span>Categories</span>
                 </Link>
+                 <Link to="/admin/food_items" className="nav-item">
+                       <OffersIcon /> <span>food_items</span>
+                 </Link>
+
+                               <Link to="/admin/offers" className="nav-item">
+                                   <OffersIcon /> <span>Offres </span>
+                               </Link>
+                               <Link to="/admin/offer_items" className="nav-item">
+                                                    <OffersIcon /> <span>offer_items</span>
+                                                </Link>
                 {/* Lien Actif */}
                 <Link to="/admin/orders" className="nav-item active">
                     <OrdersIcon /> <span>Gestion Commandes</span>
                 </Link>
-                <Link to="/admin/catalog" className="nav-item">
-                    <SettingsIcon /> <span>Catalogue (Food Items)</span>
+                <Link to="/" className="nav-item">
+                    <SettingsIcon /> <span>Paramétres</span>
                 </Link>
             </nav>
         </aside>

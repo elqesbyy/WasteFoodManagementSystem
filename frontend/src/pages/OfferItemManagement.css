@@ -6,6 +6,7 @@ import './AdminDashboard.css';
 import './OfferManagement.css';
 
 // --- Icônes (Réutilisées) ---
+// ... (Les icônes restent les mêmes) ...
 const UsersIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>);
 const OffersIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>);
 const HomeIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>);
@@ -13,34 +14,33 @@ const SettingsIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" h
 const OrdersIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>);
 
 
-// --- DONNÉES FACTICES ---
-const dummyOffers = [
+// --- DONNÉES FACTICES AJUSTÉES POUR OFFER_ITEMS ---
+// NOTE: Les noms de colonnes SQL sont utilisés comme clés.
+const dummyOfferItems = [
     {
-        id: 1, title: 'Lots de pains invendus', donor: 'resto_burger', localization: '12 Av. du Burger, 75010 Paris...',
-        available_from: '11 déc. 2025, 18:00', available_to: '11 déc. 2025, 20:00',
-        description: '20kg de pain, brioches et viennoiseries...', status: 'AVAILABLE',
-        notes_admin: 'À consommer le jour même.', created_at: '2025-12-11'
+        id: 101, offer_id: 1, food_item_id: 5, quantity: 20.00, unit: 'kg',
+        price_per_unit: 0.00, created_at: '2025-12-11 18:00'
     },
     {
-        id: 2, title: 'Excellent de légumes bio', donor: 'donor_bakery', localization: 'Rue des Pains, 69002 Lyon...',
-        available_from: '10 déc. 2025, 14:00', available_to: '10 déc. 2025, 16:00',
-        description: '5 caisses de tomates et courgettes...', status: 'CLAIMED',
-        notes_admin: 'Retiré par Khadija.', created_at: '2025-12-09'
+        id: 102, offer_id: 1, food_item_id: 6, quantity: 50, unit: 'units',
+        price_per_unit: 0.00, created_at: '2025-12-11 18:00'
     },
     {
-        id: 3, title: 'Boissons et jus de fruits', donor: 'resto_burger', localization: '12 Av. du Burger, 75010 Paris...',
-        available_from: '5 déc. 2025, 10:00', available_to: '5 déc. 2025, 18:00',
-        description: 'Stocks avec DLUO courte.', status: 'EXPIRED',
-        notes_admin: 'Offre non réclamée.', created_at: '2025-12-04'
+        id: 103, offer_id: 2, food_item_id: 12, quantity: 5.00, unit: 'caisses',
+        price_per_unit: 0.00, created_at: '2025-12-09 14:00'
+    },
+    {
+        id: 104, offer_id: 3, food_item_id: 20, quantity: 150, unit: 'litres',
+        price_per_unit: 0.00, created_at: '2025-12-04 10:00'
     },
 ];
 
 const OfferManagement = () => {
-    // CORRECTION: 'setOffers' est retiré pour supprimer le warning "unused variable"
-    const [offers] = useState(dummyOffers);
+    // Changement de nom des données pour la cohérence
+    const [offerItems] = useState(dummyOfferItems);
 
-    const handleAction = (offerId, actionType) => {
-        alert(`${actionType} sur l'offre ID: ${offerId}. Implémentation API nécessaire.`);
+    const handleAction = (offerItemId, actionType) => {
+        alert(`${actionType} sur l'élément d'offre ID: ${offerItemId}. Implémentation API nécessaire.`);
     };
 
     const OfferSidebar = () => (
@@ -59,13 +59,13 @@ const OfferManagement = () => {
                 <Link to="/admin/categories" className="nav-item ">
                       <OffersIcon /> <span>Categories</span>
                 </Link>
-                <Link to="/admin/food_items" className="nav-item">
+                <Link to="/admin/food-items" className="nav-item">
                        <OffersIcon /> <span>food_items</span>
                 </Link>
-                <Link to="/admin/offers" className="nav-item active">
+                <Link to="/admin/offers" className="nav-item ">
                     <OffersIcon /> <span>Offres </span>
                 </Link>
-                 <Link to="/admin/offer_items" className="nav-item">
+                 <Link to="/admin/offer_items" className="nav-item active">
                  <OffersIcon /> <span>offer_items</span>
                   </Link>
                 <Link to="/admin/orders" className="nav-item">
@@ -82,9 +82,10 @@ const OfferManagement = () => {
         <div className="admin-content-box full-width-table">
             <div className="table-header-controls">
                 {/* Titre interne du tableau (en orange) */}
-                <h2>Liste Complète des Offres Publiées</h2>
-                <button className="add-offer-btn" onClick={() => handleAction(null, 'Publier Nouvelle Offre')}>
-                    + Publier Nouvelle Offre
+                <h2>Liste des Éléments d'Offre (Offer_Items)</h2>
+                {/* Le bouton d'ajout est conservé mais l'action change */}
+                <button className="add-offer-btn" onClick={() => handleAction(null, 'Ajouter Nouvel Élément')}>
+                    + Ajouter Nouvel Élément
                 </button>
             </div>
 
@@ -92,40 +93,36 @@ const OfferManagement = () => {
                 <table className="offer-management-table">
                     <thead>
                         <tr>
-                            <th>TITRE OFFRE</th>
-                            <th>DONATEUR</th>
-                            <th>LOCALISATION</th>
-                            <th>DISPONIBLE DE</th>
-                            <th>DISPONIBLE À</th>
-                            <th>DESCRIPTION</th>
-                            <th>STATUT</th>
-                            <th>NOTES ADMIN</th>
+                            {/* COLONNES DE OFFER_ITEMS */}
+                            <th>ID</th>
+                            <th>ID OFFRE</th>
+                            <th>ID PRODUIT</th>
+                            <th>QUANTITÉ</th>
+                            <th>UNITÉ</th>
+                            <th>PRIX / UNITÉ</th>
                             <th>CRÉÉ LE</th>
                             <th className="action-column">ACTIONS</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {offers.map((offer) => (
-                            <tr key={offer.id}>
-                                <td>{offer.title}</td>
-                                <td>{offer.donor}</td>
-                                <td title={offer.localization}>{offer.localization}</td>
-                                <td>{offer.available_from}</td>
-                                <td>{offer.available_to}</td>
-                                <td title={offer.description}>{offer.description.substring(0, 30)}...</td>
-                                <td>
-                                    <span className={`status-badge status-${offer.status.toLowerCase()}`}>{offer.status}</span>
-                                </td>
-                                <td title={offer.notes_admin}>{offer.notes_admin}</td>
-                                <td>{offer.created_at}</td>
+                        {/* Mappage sur les nouvelles données factices */}
+                        {offerItems.map((item) => (
+                            <tr key={item.id}>
+                                <td>{item.id}</td>
+                                <td>{item.offer_id}</td>
+                                <td>{item.food_item_id}</td>
+                                <td>{item.quantity.toFixed(2)}</td>
+                                <td>{item.unit}</td>
+                                <td>{item.price_per_unit.toFixed(2)}</td>
+                                <td>{item.created_at}</td>
                                 <td className="action-column">
-                                    <button onClick={() => handleAction(offer.id, 'Détails')} className="action-btn view-btn">
-                                        Détails
+                                    <button onClick={() => handleAction(item.id, 'Détails')} className="action-btn view-btn">
+                                        Voir
                                     </button>
-                                    <button onClick={() => handleAction(offer.id, 'Archiver')} className="action-btn archive-btn">
-                                        Archiver
+                                    <button onClick={() => handleAction(item.id, 'Modifier')} className="action-btn archive-btn">
+                                        Modif.
                                     </button>
-                                    <button onClick={() => handleAction(offer.id, 'Supprimer')} className="action-btn delete-btn">
+                                    <button onClick={() => handleAction(item.id, 'Supprimer')} className="action-btn delete-btn">
                                         Suppr.
                                     </button>
                                 </td>
@@ -143,7 +140,7 @@ const OfferManagement = () => {
 
             <div className="main-content-area">
                 <header className="top-navbar">
-                    <h1 className="page-title">Gestion des Offres et Dons</h1>
+                    <h1 className="page-title">Gestion des Éléments d'Offre (Offer_Items)</h1>
                     <div className="user-profile">
                         <span>Admin User</span>
                         <div className="avatar">AD</div>
@@ -151,9 +148,7 @@ const OfferManagement = () => {
                 </header>
 
                 <main className="dashboard-body">
-                    {/* Titre principal harmonisé */}
-                    <h2 className="main-table-title"></h2>
-
+                    {/* Le titre principal de la table est maintenant géré dans OfferTable */}
                     <OfferTable />
                 </main>
             </div>

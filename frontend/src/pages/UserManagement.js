@@ -1,4 +1,4 @@
-// frontend/src/pages/UserManagement.js (VERSION SANS "ID" et SANS "MàJ le")
+// frontend/src/pages/UserManagement.js
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -58,14 +58,24 @@ const UserManagement = () => {
                 <Link to="/admin/users" className="nav-item active">
                     <UsersIcon /> <span>Gestion Users</span>
                 </Link>
+                <Link to="/admin/categories" className="nav-item">
+                      <OffersIcon /> <span>Categories</span>
+                                </Link>
+                <Link to="/admin/food_items" className="nav-item">
+                      <OffersIcon /> <span>food_items</span>
+                                </Link>
+
                 <Link to="/admin/offers" className="nav-item">
-                    <OffersIcon /> <span>Offres & Dons</span>
+                    <OffersIcon /> <span>Offres</span>
                 </Link>
+                 <Link to="/admin/offer_items" className="nav-item">
+                     <OffersIcon /> <span>offer_items</span>
+                 </Link>
                 <Link to="/admin/orders" className="nav-item">
                     <OrdersIcon /> <span>Gestion Commandes</span>
                 </Link>
-                <Link to="/admin/catalog" className="nav-item">
-                    <SettingsIcon /> <span>Catalogue (Food Items)</span>
+                <Link to="/" className="nav-item">
+                    <SettingsIcon /> <span>Paramétres</span>
                 </Link>
             </nav>
         </aside>
@@ -119,9 +129,10 @@ const UserManagement = () => {
                                     <button onClick={() => handleAction(user.id, 'Editer')} className="action-btn edit-btn">
                                         Éditer
                                     </button>
-                                    <button onClick={() => handleAction(user.id, 'Désactiver')} className="action-btn deactivate-btn">
+                                    {/* BOUTON DÉSACIVTER/ACTIVER SUPPRIMÉ ICI : */}
+                                    {/* <button onClick={() => handleAction(user.id, 'Désactiver')} className="action-btn deactivate-btn">
                                         {user.is_active ? 'Désactiver' : 'Activer'}
-                                    </button>
+                                    </button> */}
                                     {user.role !== 'ADMIN' && (
                                         <button onClick={() => handleAction(user.id, 'Supprimer')} className="action-btn delete-btn">
                                             Suppr.

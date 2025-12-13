@@ -7,6 +7,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AdminDashboard from './pages/AdminDashboard';
 import UserManagement from './pages/UserManagement';
 import OfferManagement from './pages/OfferManagement';
+import OfferItemManagement from './pages/OfferItemManagement';
+import FoodItemManagement from './pages/FoodItemManagement';
+
 import OrderManagement from './pages/OrderManagement';
 import CategoryManagement from './pages/CategoryManagement';
 
@@ -46,11 +49,19 @@ function App() {
         {/* Gestion des Utilisateurs */}
         <Route path="/admin/users" element={<UserManagement />} />
 
+        {/* Food Items Management */}
+
+
         {/* Gestion des Offres et Dons */}
         <Route path="/admin/offers" element={<OfferManagement />} />
 
+ <Route path="/admin/offer_items" element={<OfferItemManagement />} />
+ <Route path="/admin/food_items" element={<FoodItemManagement />} />
+
         {/* Gestion des Commandes */}
         <Route path="/admin/orders" element={<OrderManagement />} />
+{/* NOUVELLE ROUTE : Food Items Management (food_items) */}
+
 
         {/* Gestion des Catégories */}
         <Route path="/admin/categories" element={<CategoryManagement />} />
