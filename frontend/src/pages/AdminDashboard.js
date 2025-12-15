@@ -17,9 +17,13 @@ const Sidebar = () => {
     const navItems = [
         { path: '/admin-dashboard', icon: FaTachometerAlt, label: 'Dashboard' },
         { path: '/admin/users', icon: FaUsers, label: 'Gestion Users' },
-        { path: '/admin/offers', icon: FaHandsHelping, label: 'Offres & Dons' },
+        { path: '/admin/categories', icon: FaBoxOpen, label: 'Categories' },
+        { path: '/admin/food_items', icon: FaHandsHelping, label: 'food_items' },
+        { path: '/admin/offers', icon: FaHandsHelping, label: 'Offres ' },
+        { path: '/admin/offer_items', icon: FaBoxOpen, label: 'offer_items' },
         { path: '/admin/orders', icon: FaBoxOpen, label: 'Gestion Commandes' },
-        { path: '/admin/categories', icon: FaThList, label: 'Catalogue (Food Items)' },
+        { path: '/Parametres', icon: FaBoxOpen, label: 'Paramétres' },
+
     ];
 
     return (

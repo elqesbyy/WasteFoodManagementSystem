@@ -1,0 +1,50 @@
+/* --- DANS AdminDashboard.css (OU CSS GLOBAL) --- */
+
+/* 1. Empêcher le défilement horizontal sur l'ensemble de la page */
+body, html {
+    margin: 0;
+    padding: 0;
+    /* C'est la clé pour supprimer la barre blanche à droite */
+    overflow-x: hidden;
+}
+
+/* 2. S'assurer que le conteneur principal gère le débordement interne */
+.main-content-area {
+    /* La largeur doit être bien gérée par le flex/grid de .admin-dashboard-layout */
+    overflow-x: hidden; /* Empêche le contenu interne de déborder */
+    /* Assurez-vous d'avoir box-sizing: border-box; quelque part globalement */
+    box-sizing: border-box;
+    padding: 20px; /* Si vous voulez une marge autour du contenu */
+}
+
+/* 3. Si un tableau est trop large, autoriser le défilement à l'intérieur de son wrapper */
+.table-wrapper {
+    /* Si le tableau dépasse le conteneur (ce que nous allons essayer d'éviter ci-dessous) */
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+/* --- DANS UserManagement.css (ou ajoutez ceci dans FoodItemManagement.css si vous le créez) --- */
+
+/* Appliquer la largeur max et le centrage au conteneur du tableau */
+.admin-content-box.food-items-container {
+    /* 1. Limiter la largeur du conteneur */
+    max-width: 900px; /* Ajustez cette valeur (ex: 800px ou 70%) */
+    width: 90%;
+
+    /* 2. Centrer le conteneur dans l'espace disponible */
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Centrer le conteneur et appliquer une ombre pour le mettre en évidence */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: white;
+}
+
+
+/* 3. S'assurer que le tableau utilise 100% de la NOUVELLE largeur du conteneur */
+.user-management-table {
+    /* Reste à 100% pour remplir le conteneur admin-content-box */
+    width: 100%;
+    /* ... autres styles de tableau ... */
+}
