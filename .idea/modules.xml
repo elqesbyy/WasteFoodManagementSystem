@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WasteFoodManagementSystem.iml" filepath="$PROJECT_DIR$/WasteFoodManagementSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-service/src/business-server.iml" filepath="$PROJECT_DIR$/user-service/src/business-server.iml" />
     </modules>
   </component>
 </project>

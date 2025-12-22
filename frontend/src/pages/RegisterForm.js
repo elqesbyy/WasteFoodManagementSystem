@@ -31,7 +31,7 @@ const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
@@ -39,9 +39,28 @@ const RegisterForm = () => {
       return;
     }
 
-    console.log('Inscription tentée avec:', { accountType, name, email });
-  };
+    try {
+      const response = await fetch('http://localhost:8080/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: name,
+          email: email,
+          password: password,
+          role: accountType.toUpperCase() // 'ADMIN' ou 'USER'
+        })
+      });
 
+      if (response.ok) {
+        alert("Inscription réussie !");
+      } else {
+        alert("Erreur lors de l'inscription");
+      }
+    } catch (error) {
+      console.error("Erreur de connexion au serveur:", error);
+      alert("Le serveur ne répond pas (ERR_CONNECTION_REFUSED)");
+    }
+  };
   return (
     <div className="register-container">
       <div className="register-form-box">
