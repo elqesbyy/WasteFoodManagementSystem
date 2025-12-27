@@ -1,51 +1,43 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
+// استيراد الصفحات
 import AdminDashboard from './pages/AdminDashboard';
 import UserManagement from './pages/UserManagement';
-import OfferManagement from './pages/OfferManagement';
-import OfferItemManagement from './pages/OfferItemManagement';
-import FoodItemManagement from './pages/FoodItemManagement';
-import OrderManagement from './pages/OrderManagement';
-import CategoryManagement from './pages/CategoryManagement';
 import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginForm'; // تأكدي أن الاسم هنا يتطابق مع الملف
-import RegisterPage from './pages/RegisterForm'; // تأكدي أن الاسم هنا يتطابق مع الملف
+import LoginPage from './pages/LoginForm';
+import RegisterPage from './pages/RegisterForm';
 import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
 import ClaimFood from './pages/ClaimFood';
+
+// مكون بسيط للـ Navbar لكي تظهر الروابط
+const Navbar = () => (
+    <nav className="bg-white shadow-sm p-4 flex justify-center gap-6 font-bold text-green-700">
+        <Link to="/">Home</Link>
+        <Link to="/about">About Us</Link>
+        <Link to="/claim">Claim Food</Link>
+        <Link to="/login" className="text-gray-500">Login</Link>
+    </nav>
+);
+
 function App() {
     return (
         <Router>
+            <Navbar /> {/* سيظهر الشريط في كل الصفحات */}
             <Routes>
-                {/* الصفحة الرئيسية العامة */}
                 <Route path="/" element={<HomePage />} />
-                <Route path="/claim" element={<ClaimFood />} />
-                {/* مسار الـ Home الذي سيتم التوجيه إليه بعد التسجيل */}
                 <Route path="/home" element={<HomePage />} />
-
-                {/* صفحة تسجيل الدخول */}
+                <Route path="/claim" element={<ClaimFood />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<ContactPage />} />
                 <Route path="/login" element={<LoginPage />} />
-
-                {/* صفحة إنشاء حساب */}
                 <Route path="/register" element={<RegisterPage />} />
 
-                {/* صفحات معلوماتية */}
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/claim" element={<ClaimFood />} />
-
-                {/* --- ROUTES ADMINISTRATIVES (ADMIN) --- */}
-                <Route path="/admin-dashboard" element={<AdminDashboard />} />
+                {/* Routes Admin */}
                 <Route path="/admin" element={<AdminDashboard />} />
-
-                {/* إدارة البيانات (Admin) */}
                 <Route path="/admin/users" element={<UserManagement />} />
-                <Route path="/admin/offers" element={<OfferManagement />} />
-                <Route path="/admin/offer_items" element={<OfferItemManagement />} />
-                <Route path="/admin/food_items" element={<FoodItemManagement />} />
-                <Route path="/admin/orders" element={<OrderManagement />} />
-                <Route path="/admin/categories" element={<CategoryManagement />} />
+                {/* أضيفي باقي مسارات الأدمن هنا بنفس الطريقة */}
             </Routes>
         </Router>
     );
