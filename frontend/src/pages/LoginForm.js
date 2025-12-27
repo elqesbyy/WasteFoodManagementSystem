@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios'; // ضروري
+import axios from 'axios';
+import { Mail, Lock, LogIn } from 'lucide-react';
 import './LoginForm.css';
-
-const MailIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-);
-const LockIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-);
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -24,10 +18,9 @@ const LoginForm = () => {
       });
 
       if (response.status === 200) {
-        alert("Connexion réussie !");
+        alert("Welcome back!");
         localStorage.setItem('user', JSON.stringify(response.data));
 
-        // التوجيه حسب الـ Role
         if (response.data.role === 'ADMIN') {
           navigate('/admin-dashboard');
         } else {
@@ -35,29 +28,52 @@ const LoginForm = () => {
         }
       }
     } catch (error) {
-      alert("Email ou mot de passe incorrect");
+      alert("Invalid email or password. Please try again.");
     }
   };
 
   return (
-      <div className="login-container">
-        <div className="login-form-box">
-          <div className="logo-container">
-            <span className="logo-don">Don</span><span className="logo-eat">Eat</span>
+      <div className="auth-page">
+        <div className="auth-card">
+          <div className="auth-logo">
+            <span className="don">Don</span><span className="eat">Eat</span>
           </div>
-          <h2 className="login-title">Login Form</h2>
-          <form onSubmit={handleSubmit} className="login-form">
-            <div className="input-group">
-              <div className="input-icon-box"><MailIcon /></div>
-              <input type="email" placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+
+          <div className="auth-header">
+            <h2>Welcome Back</h2>
+            <p>Log in to continue saving food</p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="auth-form">
+            <div className="input-field">
+              <Mail className="icon" size={20} />
+              <input
+                  type="email"
+                  placeholder="Email Address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+              />
             </div>
-            <div className="input-group">
-              <div className="input-icon-box"><LockIcon /></div>
-              <input type="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+
+            <div className="input-field">
+              <Lock className="icon" size={20} />
+              <input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+              />
             </div>
-            <button type="submit" className="login-button">Log in</button>
-            <p className="signup-text">
-              Don't have an account ? <Link to="/register" className="signup-link">Sign up</Link>
+
+            <button type="submit" className="btn-primary">
+              <LogIn size={20} style={{marginRight: '8px'}} />
+              Log In
+            </button>
+
+            <p className="auth-footer">
+              Don't have an account? <Link to="/register" className="link">Sign Up</Link>
             </p>
           </form>
         </div>

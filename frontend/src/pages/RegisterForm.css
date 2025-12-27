@@ -1,169 +1,105 @@
-/* frontend/src/pages/RegisterForm.css */
-
-/* --- COULEURS ET FOND --- */
-:root {
-    --bg-color: #f7f1e6;
-    --logo-color-don: #4CAF50;
-    --logo-color-eat: #ff7f50;
-    --button-bg-color: #66BB6A;
-    --text-color: #555;
-    --link-color: #ff7f50;
-    --border-color: #ddd;
-    --active-role-bg: #ff7f50;
-}
-
-.register-container {
+.register-page {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: var(--bg-color);
-    font-family: Arial, sans-serif;
+    background-color: #f8fafc; /* لون خلفية هادئ */
+    padding: 20px;
 }
 
-/* --- CONTENEUR DU FORMULAIRE --- */
-.register-form-box {
-    width: 100%;
-    max-width: 450px;
+.register-card {
+    background: white;
     padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 400px;
     text-align: center;
 }
 
-/* --- LOGO DonEat --- */
-.logo-container {
-    margin-bottom: 5px;
-    font-size: 40px;
-    font-weight: bold;
+.auth-logo {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 10px;
 }
 
-.logo-don {
-    color: var(--logo-color-don);
+.auth-logo .don { color: #22c55e; } /* أخضر */
+.auth-logo .eat { color: #f97316; } /* برتقالي */
+
+.auth-header h2 {
+    font-size: 24px;
+    color: #1e293b;
+    margin-bottom: 8px;
 }
 
-.logo-eat {
-    color: var(--logo-color-eat);
-}
-
-.register-subtitle {
-    color: var(--link-color);
-    font-size: 20px;
-    margin-bottom: 30px;
-    font-weight: normal;
-}
-
-
-/* --- SÉLECTEUR DE RÔLE (ADMIN/USER) --- */
-.role-selector {
-    display: flex;
-    justify-content: center;
-    width: 80%;
-    max-width: 250px;
-    margin: 0 auto 30px auto;
-    background-color: white;
-    padding: 5px;
-    border-radius: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.role-button {
-    flex-grow: 1;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 15px;
+.auth-header p {
+    color: #64748b;
     font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: transparent;
-    color: var(--text-color);
-    transition: background-color 0.3s, color 0.3s;
+    margin-bottom: 30px;
 }
 
-.role-button.active {
-    background-color: var(--active-role-bg);
-    color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-
-/* --- CHAMPS D'ENTRÉE --- */
-.input-group {
+.auth-form {
     display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    background-color: white;
-    height: 50px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    flex-direction: column;
+    gap: 16px;
 }
 
-.input-icon-box {
-    background-color: var(--logo-color-don);
-    color: white;
-    padding: 10px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px 0 0 5px;
-}
-
-.input-group input {
-    flex-grow: 1;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    outline: none;
-    height: 100%;
-    border-radius: 0 5px 5px 0;
-}
-
-
-/* Toggle mot de passe (icône œil) */
-.password-group {
+.input-field {
     position: relative;
+    display: flex;
+    align-items: center;
+    background: #f1f5f9;
+    border-radius: 12px;
+    padding: 0 15px;
 }
 
-.password-toggle {
-    position: absolute;
-    right: 0;
-    height: 100%;
+.input-field .icon {
+    color: #94a3b8;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 14px 10px;
     border: none;
     background: transparent;
-    cursor: pointer;
-    color: var(--text-color);
-    padding: 0 10px;
-    opacity: 0.6;
+    outline: none;
+    font-size: 15px;
+    color: #334155;
 }
 
-/* --- BOUTON D'INSCRIPTION --- */
-.register-button {
-    width: 50%;
-    padding: 12px 20px;
-    background-color: var(--button-bg-color);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
+.eye-btn {
     border: none;
-    border-radius: 25px;
+    background: transparent;
+    color: #94a3b8;
     cursor: pointer;
-    margin-top: 15px;
-    transition: background-color 0.3s;
 }
 
-.register-button:hover {
-    background-color: #5CB85C;
+.btn-primary {
+    background: #22c55e; /* لون أخضر متناسق */
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
 }
 
-/* --- LIENS ET TEXTES --- */
-.login-text {
-    margin-top: 30px;
+.btn-primary:hover {
+    background: #16a34a;
+    transform: translateY(-2px);
+}
+
+.auth-footer {
+    margin-top: 20px;
     font-size: 14px;
-    color: var(--text-color);
+    color: #64748b;
 }
 
-.login-link {
-    color: var(--link-color);
-    text-decoration: underline;
-    font-weight: bold;
+.auth-footer .link {
+    color: #f97316;
+    font-weight: 600;
+    text-decoration: none;
 }
