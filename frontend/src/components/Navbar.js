@@ -1,34 +1,19 @@
-// frontend/src/components/Navbar.js
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
 
 const Navbar = () => {
     return (
-        <header className="main-header">
-            <div className="logo">
-                <Link to="/">
-                    <span className="logo-don">Don</span><span className="logo-eat">Eat</span>
-                </Link>
+        <nav className="bg-green-600 text-white p-4 shadow-lg">
+            <div className="container mx-auto flex justify-between items-center">
+                <h1 className="text-xl font-bold">WasteFood System</h1>
+                <div className="space-x-6">
+                    <Link to="/" className="hover:text-green-200">Home</Link>
+                    <Link to="/about" className="hover:text-green-200">About Us</Link>
+                    <Link to="/claim" className="hover:text-green-200">Claim Food</Link>
+                    <Link to="/login" className="bg-white text-green-600 px-4 py-2 rounded-lg font-semibold">Login</Link>
+                </div>
             </div>
-
-            <nav className="main-nav">
-                {/* Liens de navigation principaux */}
-                <Link to="/" className="nav-link">Home</Link>
-                <Link to="/offers" className="nav-link">Offers</Link>
-                <Link to="/categories" className="nav-link">Categories</Link>
-
-                {/* L'ordre est maintenant ABOUT, puis CONTACT */}
-                <Link to="/about" className="nav-link">About</Link>
-                <Link to="/contact" className="nav-link">Contact</Link>
-            </nav>
-
-            <div className="auth-buttons">
-                <Link to="/login" className="login-btn">Log in</Link>
-                <Link to="/register" className="signup-btn">Sign up</Link>
-            </div>
-        </header>
+        </nav>
     );
 };
 

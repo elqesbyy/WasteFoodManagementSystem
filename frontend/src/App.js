@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// استيراد الصفحات
 import AdminDashboard from './pages/AdminDashboard';
 import UserManagement from './pages/UserManagement';
 import OfferManagement from './pages/OfferManagement';
@@ -14,14 +13,14 @@ import LoginPage from './pages/LoginForm'; // تأكدي أن الاسم هنا 
 import RegisterPage from './pages/RegisterForm'; // تأكدي أن الاسم هنا يتطابق مع الملف
 import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
-
+import ClaimFood from './pages/ClaimFood';
 function App() {
     return (
         <Router>
             <Routes>
                 {/* الصفحة الرئيسية العامة */}
                 <Route path="/" element={<HomePage />} />
-
+                <Route path="/claim" element={<ClaimFood />} />
                 {/* مسار الـ Home الذي سيتم التوجيه إليه بعد التسجيل */}
                 <Route path="/home" element={<HomePage />} />
 
@@ -34,6 +33,7 @@ function App() {
                 {/* صفحات معلوماتية */}
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/about" element={<AboutPage />} />
+                <Route path="/claim" element={<ClaimFood />} />
 
                 {/* --- ROUTES ADMINISTRATIVES (ADMIN) --- */}
                 <Route path="/admin-dashboard" element={<AdminDashboard />} />
