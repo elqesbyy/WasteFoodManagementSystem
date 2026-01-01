@@ -1,0 +1,174 @@
+/* frontend/src/pages/OrderManagement.css */
+
+/* --- GENERAL & WRAPPER (Styles basés sur les précédents CSS d'administration) --- */
+
+:root {
+    --logo-color-eat: #ff7f50;
+    --button-bg-color: #66BB6A;
+    --text-dark: #333;
+    --card-bg: white;
+    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-content-box {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid #f0f0f0;
+}
+
+.full-width-table {
+    width: 100%;
+}
+
+.table-header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.table-header-controls h2 {
+    color: var(--logo-color-eat);
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Bouton Créer Commande Manuelle */
+.add-order-btn {
+    background-color: #2196F3; /* Bleu */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.add-order-btn:hover {
+    background-color: #1976D2;
+}
+
+/* Wrapper pour le défilement horizontal */
+.table-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* --- STYLE DU TABLEAU --- */
+.order-management-table {
+    width: 100%;
+    min-width: 1400px; /* Largeur ajustée pour les nombreuses colonnes de commande */
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+}
+
+.order-management-table th {
+    background-color: #f7f7f7;
+    color: var(--text-dark);
+    padding: 12px 15px;
+    border-bottom: 2px solid #ddd;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.order-management-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    color: var(--text-dark);
+    vertical-align: middle;
+    white-space: nowrap;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.order-management-table tbody tr:hover {
+    background-color: #fcfcfc;
+}
+
+.action-column {
+    min-width: 200px;
+    white-space: nowrap;
+}
+
+
+/* --- BADGES DE STATUT DE COMMANDE (ORDER STATUS) --- */
+
+.status-badge, .payment-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.85em;
+    display: inline-block;
+}
+
+.status-pending {
+    background-color: #FFECB3; /* Jaune pâle */
+    color: #FF8F00;
+}
+.status-confirmed {
+    background-color: #E0F7FA; /* Bleu Cyan pâle */
+    color: #00838F;
+}
+.status-collected { /* Retiré/Terminé */
+    background-color: #A5D6A7;
+    color: #1B5E20;
+}
+.status-cancelled {
+    background-color: #FFEBEE;
+    color: #D32F2F;
+}
+
+/* --- BADGES DE STATUT DE PAIEMENT (PAYMENT STATUS) --- */
+
+.payment-success {
+    background-color: #C8E6C9; /* Vert */
+    color: #388E3C;
+}
+.payment-failed {
+    background-color: #FFCDD2; /* Rouge */
+    color: #C62828;
+}
+.payment-refunded {
+    background-color: #E0E0E0; /* Gris */
+    color: #757575;
+}
+
+/* --- BOUTONS D'ACTION --- */
+
+.action-btn {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+    font-size: 13px;
+    transition: opacity 0.2s;
+}
+
+.action-btn:hover {
+    opacity: 0.8;
+}
+
+.view-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.update-status-btn {
+    background-color: #FF9800; /* Orange */
+    color: white;
+}
+
+.refund-btn {
+    background-color: #795548; /* Marron/Terre */
+    color: white;
+}

@@ -1,0 +1,90 @@
+/* frontend/src/components/Navbar.css */
+
+/* Variables pour la cohérence des couleurs (réutilisées du Dashboard) */
+:root {
+    --green-primary: #4CAF50;
+    --orange-secondary: #ff7f50;
+    --text-dark: #333;
+}
+
+.main-header {
+    width: 100%;
+    position: fixed; /* Reste en haut lors du défilement */
+    top: 0;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+}
+
+/* --- LOGO --- */
+.logo a {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.logo-don {
+    color: var(--green-primary);
+}
+
+.logo-eat {
+    color: var(--orange-secondary);
+}
+
+/* --- NAVIGATION LINKS --- */
+.main-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav .nav-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-nav .nav-link:hover {
+    color: var(--green-primary);
+}
+
+/* --- AUTH BUTTONS (Login/Signup) --- */
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.login-btn, .signup-btn {
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.login-btn {
+    color: var(--green-primary);
+    border: 1px solid var(--green-primary);
+}
+
+.login-btn:hover {
+    background-color: var(--green-primary);
+    color: white;
+}
+
+.signup-btn {
+    background-color: var(--orange-secondary);
+    color: white;
+    border: 1px solid var(--orange-secondary);
+}
+
+.signup-btn:hover {
+    background-color: #e56c40;
+}
