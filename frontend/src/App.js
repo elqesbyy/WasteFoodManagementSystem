@@ -1,44 +1,59 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 
-// --- استيراد الصفحات ---
-import AdminDashboard from './pages/AdminDashboard';
-import UserManagement from './pages/UserManagement';
+// استيراد الصفحات
 import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginForm';
-import RegisterPage from './pages/RegisterForm';
-import ContactPage from './pages/ContactPage';
 import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 import ClaimFood from './pages/ClaimFood';
-import DonateFood from './pages/DonateFood'; // تأكدي من إضافة هذا السطر ✅
+import ClaimForm from './pages/ClaimForm';
+import DonateFood from './pages/DonateFood';
+import LoginPage from './pages/LoginForm';
+import Footer from './components/Footer';
 
-const Navbar = () => (
-    <nav className="bg-white shadow-sm p-4 flex justify-center gap-6 font-bold text-green-700">
-        <Link to="/">Home</Link>
-        <Link to="/about">About Us</Link>
-        <Link to="/claim">Claim Food</Link>
-        <Link to="/donate">Donate</Link> {/* أضفنا رابط التبرع هنا أيضا */}
-        <Link to="/login" className="text-gray-500">Login</Link>
-    </nav>
-);
+// الـ Wrapper اللي كيتحكم في الـ Footer
+const Layout = ({ children }) => {
+    const location = useLocation();
+
+    // ضفنا '/claim' لهاد القائمة باش يبان فيها الـ Footer
+    const showFooterPaths = ['/', '/home', '/about', '/contact', '/claim'];
+    const shouldShowFooter = showFooterPaths.includes(location.pathname);
+
+    return (
+        <>
+            <nav className="bg-white shadow-sm p-4 flex justify-center gap-6 font-bold text-green-700">
+                <Link to="/">Home</Link>
+                <Link to="/about">About Us</Link>
+                <Link to="/claim">Claim Food</Link>
+                <Link to="/donate">Donate</Link>
+                <Link to="/login" className="text-gray-500">Login</Link>
+            </nav>
+
+            <main className="min-h-screen">
+                {children}
+            </main>
+
+            {/* الـ Footer غايبان دابا حتى في صفحة Claim */}
+            {shouldShowFooter && <Footer />}
+        </>
+    );
+};
 
 function App() {
     return (
         <Router>
-            <Navbar />
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/home" element={<HomePage />} />
-                <Route path="/claim" element={<ClaimFood />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/register" element={<RegisterPage />} />
-                <Route path="/donate" element={<DonateFood />} />
-                {/* Routes Admin */}
-                <Route path="/admin" element={<AdminDashboard />} />
-                <Route path="/admin/users" element={<UserManagement />} />
-            </Routes>
+            <Layout>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/home" element={<HomePage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                    <Route path="/claim" element={<ClaimFood />} />
+                    <Route path="/confirm-claim" element={<ClaimForm />} />
+                    <Route path="/donate" element={<DonateFood />} />
+                    <Route path="/login" element={<LoginPage />} />
+                </Routes>
+            </Layout>
         </Router>
     );
 }
